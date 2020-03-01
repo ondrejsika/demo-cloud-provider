@@ -1,0 +1,5 @@
+image: ondrejsika/trainingcrm
+host: demo-cloud-prod.panda.oxs.cz
+www_redirect: false
+changeCause: null
+database_url: postgres://democloud:democlouddemo@bar.l.oxs.cz:5432/democloud

@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    release: {{ .Release.Name }}
+  {{ if .Values.www_redirect }}
+  annotations:
+    traefik.frontend.redirect.regex: ^https?://www.{{ .Values.host }}/(.*)
+    traefik.frontend.redirect.replacement: https://{{ .Values.host }}/$1
+  {{ end }}
+spec:
+  rules:
+    {{ if .Values.www_redirect }}
+    - host: www.{{ .Values.host }}
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: {{ .Release.Name }}
+              servicePort: http
+    {{ end }}
+    - host: {{ .Values.host }}
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: {{ .Release.Name }}
+              servicePort: http
