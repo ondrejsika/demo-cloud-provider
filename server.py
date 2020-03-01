@@ -61,7 +61,7 @@ def update_text(box_id, text_id):
 
 @app.route("/v1/box/<int:box_id>/text/<int:text_id>/", methods=["DELETE"])
 def delete_text(box_id, text_id):
-    db["boxes"].delete(box_id=box_id, id=text_id)
+    db["texts"].delete(box_id=box_id, id=text_id)
     return json.dumps({"ok": True})
 
 
