@@ -11,6 +11,8 @@ pylint = "*"
 flask = "*"
 dataset = "*"
 tabulate = "*"
+psycopg2-binary = "*"
+uwsgi = "*"
 
 [requires]
 python_version = "3.7"
