@@ -28,13 +28,13 @@ def get_box(box_id):
 @app.route("/v1/box/<int:box_id>/", methods=["PUT"])
 def update_box(box_id):
     db["boxes"].update({"name": request.json["name"], "id": box_id}, ['id'])
-    return json.dumps({"ok": 1})
+    return json.dumps({"ok": True})
 
 
 @app.route("/v1/box/<int:box_id>/", methods=["DELETE"])
 def delete_box(box_id):
     db["boxes"].delete(id=box_id)
-    return json.dumps({"ok": 1})
+    return json.dumps({"ok": True})
 
 
 @app.route("/v1/box/<int:box_id>/text/", methods=["GET"])
@@ -56,13 +56,13 @@ def get_text(box_id, text_id):
 @app.route("/v1/box/<int:box_id>/text/<int:text_id>/", methods=["PUT"])
 def update_text(box_id, text_id):
     db["texts"].update({"text": request.json["text"], "id": text_id, "box_id": box_id}, ['id', "box_id"])
-    return json.dumps({"ok": 1})
+    return json.dumps({"ok": True})
 
 
 @app.route("/v1/box/<int:box_id>/text/<int:text_id>/", methods=["DELETE"])
 def delete_text(box_id, text_id):
     db["boxes"].delete(box_id=box_id, id=text_id)
-    return json.dumps({"ok": 1})
+    return json.dumps({"ok": True})
 
 
 @app.route("/", methods=["GET"])
