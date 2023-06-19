@@ -6,7 +6,7 @@ from flask import Flask, request, Response
 
 
 app = Flask(__name__)
-db = dataset.connect(os.environ.get("DATABASE_URL", ""))
+db = dataset.connect(os.environ.get("DATABASE_URL", "sqlite:///:memory:"))
 
 
 @app.route("/v1/box/", methods=["GET"])
