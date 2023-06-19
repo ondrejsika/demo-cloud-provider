@@ -19,7 +19,7 @@ pipenv install
 
 ### Server
 
-Server listen on <http://0.0.0.0:80> by defaul.
+Server listen on <http://0.0.0.0:8000> by defaul.
 
 ```
 ./run-server.sh

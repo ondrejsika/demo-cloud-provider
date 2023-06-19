@@ -11,4 +11,4 @@ COPY Pipfile.lock .
 RUN pipenv install
 COPY . .
 CMD [ "./uwsgi.sh" ]
-EXPOSE 80
+EXPOSE 8000
